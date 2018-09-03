@@ -1244,8 +1244,8 @@ uip_process(uint8_t flag)
       PRINTF("Forwarding packet to ");
       PRINT6ADDR(&UIP_IP_BUF->destipaddr);
       PRINTF("\n");
-      UIP_STAT(++uip_stat.ip.forwarded);
-      goto send;
+      UIP_STAT(++uip_stat.ip.forwarded);  // send packet to next node
+      goto send;  // send packet to next node
     } else {
       if((uip_is_addr_linklocal(&UIP_IP_BUF->srcipaddr)) &&
          (!uip_is_addr_unspecified(&UIP_IP_BUF->srcipaddr)) &&
